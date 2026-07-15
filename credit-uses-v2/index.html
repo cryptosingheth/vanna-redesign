@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanna — Credit Uses V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#E4E1DA;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:#171320}
+  .owrap{max-width:1220px;margin:0 auto;padding:0 20px}
+  .olab{display:flex;align-items:center;gap:10px;margin:0 0 12px;padding-left:6px}
+  .olab .id{font:600 12px "JetBrains Mono",monospace;color:#fff;background:#171320;border-radius:7px;padding:5px 10px}
+  .olab .nm{font:500 13.5px "Plus Jakarta Sans",system-ui,sans-serif;color:#5B5568}
+  .osec{position:relative;overflow:hidden;border-radius:26px;box-shadow:0 40px 90px -60px rgba(30,10,60,.5);background:radial-gradient(120% 82% at 50% -10%,#FFFFFF,#F1F1F4 66%)}
+  .eb{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#703AE6}
+  .eb i{width:6px;height:6px;border-radius:50%;background:#FC5457;font-style:normal;animation:vLive 1.8s infinite}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .pillsw{display:inline-flex;gap:4px;background:#EFECE5;border:1px solid #E4DFD4;border-radius:999px;padding:5px}
+  .psw{font-family:inherit;font-weight:700;font-size:13.5px;border:none;border-radius:999px;padding:10px 22px;cursor:pointer;transition:all .3s cubic-bezier(.2,.6,.2,1);display:inline-flex;align-items:center;gap:8px}
+  .swstack{display:grid}
+  .swstack>*{grid-area:1/1;transition:opacity .45s cubic-bezier(.2,.6,.2,1),transform .45s cubic-bezier(.2,.6,.2,1)}
+  .grid3{display:grid;grid-template-columns:minmax(150px,262px) minmax(0,1fr) minmax(150px,262px);gap:24px;align-items:center;max-width:1110px;margin:34px auto 0;padding:0 36px}
+  .grid3 .dk{min-width:0;width:100%}
+  .feat{width:100%;max-width:266px;min-width:0}
+  .colr .feat{text-align:right}
+  .colr .fico{margin-left:auto}
+  .colr .feat li{padding-left:0;padding-right:15px}
+  .colr .feat li:before{left:auto;right:0}
+  .fico{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;margin-bottom:11px}
+  .feat h3{font-weight:700;font-size:16.5px;letter-spacing:-.015em;margin:0}
+  .feat ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .feat li{position:relative;padding-left:15px;font-size:13px;line-height:1.45;color:#5B5568}
+  .feat li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#C4BDB0}
+  .dk{border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/34px 34px,radial-gradient(95% 85% at 88% 8%,rgba(181,0,87,.42),transparent 62%),radial-gradient(90% 90% at 10% 95%,rgba(80,41,163,.5),transparent 62%),#0C0713;box-shadow:0 40px 80px -46px rgba(20,12,40,.85);color:#E7E3F2}
+  .ph{transition:opacity .55s cubic-bezier(.2,.6,.2,1),transform .55s cubic-bezier(.2,.6,.2,1)}
+  .mkt{border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.03);padding:10px 12px;transition:all .5s}
+  .urow{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(255,255,255,.03);padding:8px 12px}
+  .capdot{width:5px;height:5px;border-radius:3px;background:rgba(255,255,255,.22);transition:all .4s}
+  @media(max-width:1040px){
+    .grid3{grid-template-columns:1fr;justify-items:center;gap:30px}
+    .grid3>div{justify-self:center !important}
+    .grid3 .dk{max-width:430px}
+    .colr .feat{text-align:left}
+    .colr .fico{margin-left:0}
+    .colr .feat li{padding-left:15px;padding-right:0}
+    .colr .feat li:before{left:0;right:auto}
+  }
+  @keyframes vLive{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
+  @keyframes flowL{0%{left:76%;opacity:0}14%{opacity:1}86%{opacity:1}100%{left:14%;opacity:0}}
+  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+
+<div style="padding:40px 24px 60px">
+  <div class="owrap" style="margin-bottom:26px">
+    <span style="display:inline-flex;align-items:center;gap:8px;font:600 11px 'JetBrains Mono',monospace;color:#fff;background:#171320;border-radius:7px;padding:6px 11px">Credit Uses · V2 — content + GIF revamp</span>
+    <h1 style="font-weight:800;font-size:28px;line-height:1.1;letter-spacing:-.026em;margin:16px 0 4px">Leveraged credit — sold properly, shown properly</h1>
+    <p style="font:14.5px/1.55 'Plus Jakarta Sans',system-ui,sans-serif;color:#5B5568;margin:0;max-width:680px">Same S1 frame you liked. New value props on both sides, and story-loop diagrams that <b style="color:#171320">demonstrate each benefit step by step</b> (watch the caption under each). Alt diagram directions at the bottom — <a href="#alts" style="color:#703AE6;font-weight:600;text-decoration:none">alts</a>.</p>
+  </div>
+
+  <!-- ==================== V2 · CENTER PILL ==================== -->
+  <div class="owrap" id="v2" style="scroll-margin-top:16px;margin-bottom:40px">
+    <div class="olab"><span class="id">V2</span><span class="nm">Center pill — traders ⇄ businesses, story-loop diagrams</span></div>
+    <section class="osec" data-screen-label="V2 Pill Switch" style="padding:62px 0 70px">
+      <div style="text-align:center;padding:0 40px">
+        <div class="eb" style="justify-content:center"><i></i>Leveraged credit · unified portfolio margin</div>
+        <div style="margin-top:18px"><span class="pillsw">
+          <button class="psw" id="btnT" data-tpl-style="{{ tBtn }}"><span style="width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#F2B24A,#D68A1E)"></span>For traders</button>
+          <button class="psw" id="btnB" data-tpl-style="{{ bBtn }}"><span style="width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#FC5457,#703AE6)"></span>For businesses</button>
+        </span></div>
+      </div>
+      <div class="swstack" style="margin-top:8px">
+
+        <!-- ============ TRADER PANE ============ -->
+        <div data-tpl-style="{{ tPane }}">
+          <div style="text-align:center;max-width:760px;margin:18px auto 0;padding:0 40px">
+            <h2 style="font-weight:800;font-size:42px;line-height:1.02;letter-spacing:-.038em;margin:0">Borrow at 10&times;.<br><span style="font-style:italic;font-weight:300;background:linear-gradient(100deg,#F2B24A,#703AE6 55%,#FC5457);-webkit-background-clip:text;background-clip:text;color:transparent">Net as one book.</span></h2>
+            <p style="color:#5B5568;font-size:15.5px;line-height:1.6;max-width:600px;margin:13px auto 0">Amplified credit against your collateral — deployed across spot, perps, options, lending, LP pools and prediction markets, with every position netted by one health factor.</p>
+          </div>
+          <div class="grid3">
+            <div class="colr" style="display:flex;flex-direction:column;gap:30px;justify-self:end">
+              <div class="feat"><span class="fico" style="background:rgba(214,138,30,.12)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D68A1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"></ellipse><path d="M5 5.5v6c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-6"></path><path d="M5 11.5v6c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-6"></path></svg></span><h3>10&times; credit, every market</h3><ul><li>Borrow up to 10&times; against your collateral</li><li>Spot · perps · options · yield · LP · prediction</li><li>Delta-neutral strategies from one credit line</li></ul></div>
+              <div class="feat"><span class="fico" style="background:rgba(112,58,230,.1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#703AE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5z"></path><path d="M3 12l9 4.5 9-4.5"></path><path d="M3 16.5L12 21l9-4.5"></path></svg></span><h3>Stack collaterals &amp; borrows</h3><ul><li>Different assets, borrowed multiple times</li><li>All of it inside one unified margin account</li><li>One collateral&rsquo;s gain carries another&rsquo;s drawdown</li></ul></div>
+            </div>
+            <!-- TRADER STORY DIAGRAM -->
+            <div class="dk" style="max-width:430px;margin:0 auto;padding:20px 20px 16px">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="display:inline-flex;align-items:center;gap:8px"><img src="assets/vanna-white.png" alt="vanna" style="height:13px;display:block"><span class="mono" style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#949494">smart margin account</span></span><span class="mono" style="font-size:10px;color:#FF54A6;display:inline-flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#FF54A6;animation:vLive 1.7s infinite"></span>live</span></div>
+              <!-- 1 collateral -->
+              <div class="ph" data-tpl-style="display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.03);margin-top:14px;transition:box-shadow .5s;{{ t_col }}">
+                <div style="padding:10px 13px"><div class="mono" style="font-size:8.5px;color:#949494;text-transform:uppercase;letter-spacing:.1em">Collateral · XLM</div><div class="mono" style="font-weight:600;font-size:14px;margin-top:3px;color:#F2C879">$6,000</div></div>
+                <div style="padding:10px 13px;border-left:1px solid rgba(255,255,255,.08)"><div class="mono" style="font-size:8.5px;color:#949494;text-transform:uppercase;letter-spacing:.1em">Collateral · USDC</div><div class="mono" style="font-weight:600;font-size:14px;margin-top:3px;color:#F2C879">$4,000</div></div>
+              </div>
+              <!-- 2 borrows -->
+              <div class="ph" data-tpl-style="display:flex;flex-direction:column;gap:6px;margin-top:10px;{{ t_bor }}">
+                <div class="mono" style="font-size:10.5px;color:#B49BF5">&#8627; borrow <b style="color:#E7E3F2">3.0&times; USDC</b> against XLM</div>
+                <div class="mono" style="font-size:10.5px;color:#B49BF5;transition-delay:.25s">&#8627; borrow <b style="color:#E7E3F2">2.5&times; XLM</b> against USDC</div>
+              </div>
+              <!-- 3 markets -->
+              <div class="ph" data-tpl-style="position:relative;margin-top:12px;{{ t_mkts }}">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                  <div class="mkt" data-tpl-style="{{ t_spot }}"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:12px;font-weight:600">Spot</span><span class="mono" data-tpl-style="font-size:11px;font-weight:600;{{ t_spotP }}" data-tpl-text="t_spotV"></span></div><div class="mono" style="font-size:9px;color:#949494;margin-top:2px">pair rotation</div></div>
+                  <div class="mkt" data-tpl-style="{{ t_perps }}"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:12px;font-weight:600">Perps</span><span class="mono" style="font-size:11px;font-weight:600;color:#9F7BEE">+$420</span></div><div class="mono" style="font-size:9px;color:#949494;margin-top:2px">2.5&times; long XLM</div></div>
+                  <div class="mkt"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:12px;font-weight:600">Yield</span><span class="mono" style="font-size:11px;font-weight:600;color:#9F7BEE">+$180</span></div><div class="mono" style="font-size:9px;color:#949494;margin-top:2px">lending loop</div></div>
+                  <div class="mkt"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:12px;font-weight:600">Prediction</span><span class="mono" style="font-size:11px;font-weight:600;color:#9F7BEE">+$95</span></div><div class="mono" style="font-size:9px;color:#949494;margin-top:2px">hedged outcome</div></div>
+                </div>
+                <!-- offset beam perps -> spot -->
+                <div class="ph" data-tpl-style="position:absolute;left:14%;right:14%;top:34px;height:2px;background:linear-gradient(90deg,#FD8C8E,#9F7BEE);{{ t_beam }}"><span style="position:absolute;top:-2.5px;width:7px;height:7px;border-radius:50%;background:#9F7BEE;box-shadow:0 0 9px #9F7BEE;animation:flowL 2.2s linear infinite"></span></div>
+              </div>
+              <!-- 4 net + HF -->
+              <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.1);margin-top:14px;padding-top:11px">
+                <span class="ph mono" data-tpl-style="font-size:11px;color:#949494;{{ t_net }}">profit pays the loss &rarr; net <b style="color:#9F7BEE">+$455</b></span>
+                <span class="mono" style="display:inline-flex;align-items:baseline;gap:6px"><span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#949494">HF</span><b data-tpl-style="font-size:17px;transition:color .4s;color:{{ t_hfC }}" data-tpl-text="t_hf"></b></span>
+              </div>
+              <div class="ph mono" data-tpl-style="text-align:right;font-size:9.5px;color:#9F7BEE;margin-top:3px;{{ t_tag }}">one number · no isolated liquidations</div>
+              <!-- caption -->
+              <div style="display:flex;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,.08);margin-top:12px;padding-top:11px">
+                <div style="display:flex;gap:4px"><span class="capdot" data-tpl-style="{{ td0 }}"></span><span class="capdot" data-tpl-style="{{ td1 }}"></span><span class="capdot" data-tpl-style="{{ td2 }}"></span><span class="capdot" data-tpl-style="{{ td3 }}"></span><span class="capdot" data-tpl-style="{{ td4 }}"></span></div>
+                <span class="mono" style="font-size:10px;color:#C9C3D6" data-tpl-text="t_cap"></span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:30px">
+              <div class="feat"><span class="fico" style="background:rgba(112,58,230,.1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#703AE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M12 6h7l-2.5 5a3.6 3.6 0 0 0 5 0L19 6"></path><path d="M12 6H5l2.5 5a3.6 3.6 0 0 1-5 0L5 6"></path><path d="M8 21h8"></path></svg></span><h3>Markets offset each other</h3><ul><li>A spot loss nets against a perps profit</li><li>Even across different borrowed assets</li><li>Portfolio margin: one health factor, whole book</li></ul></div>
+              <div class="feat"><span class="fico" style="background:rgba(252,84,87,.1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D93F42" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10M7 21h10"></path><path d="M8 3c0 4 3 5.5 4 6.5 1-1 4-2.5 4-6.5"></path><path d="M8 21c0-4 3-5.5 4-6.5 1 1 4 2.5 4 6.5"></path></svg></span><h3>Credit on your clock</h3><ul><li>A borrow rate — not a funding-fee bleed</li><li>Hedged carry can pay the rate itself</li><li>Stay while it earns; exit anytime</li></ul></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ BUSINESS PANE ============ -->
+        <div data-tpl-style="{{ bPane }}">
+          <div style="text-align:center;max-width:760px;margin:18px auto 0;padding:0 40px">
+            <h2 style="font-weight:800;font-size:42px;line-height:1.02;letter-spacing:-.038em;margin:0">Leverage-as-a-service,<br><span style="font-style:italic;font-weight:300;background:linear-gradient(100deg,#FC5457,#703AE6 60%,#B23AE6);-webkit-background-clip:text;background-clip:text;color:transparent">under your brand.</span></h2>
+            <p style="color:#5B5568;font-size:15.5px;line-height:1.6;max-width:600px;margin:13px auto 0">One integration gives your users leveraged credit — while Vanna runs the balance sheet, the margin math, the liquidation protection and the solvency underneath.</p>
+          </div>
+          <div class="grid3">
+            <div class="colr" style="display:flex;flex-direction:column;gap:30px;justify-self:end">
+              <div class="feat"><span class="fico" style="background:rgba(112,58,230,.1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#703AE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 16.5a9 9 0 1 0-17.2 0"></path><path d="M12 14l3.8-3.8"></path><circle cx="12" cy="14.5" r="1.3"></circle></svg></span><h3>Live in minutes</h3><ul><li>One integration &mdash; API · SDK · MCP</li><li>No lending book to bootstrap or fund</li><li>No risk engine to build, no desk to hire</li></ul></div>
+              <div class="feat"><span class="fico" style="background:rgba(252,84,87,.1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D93F42" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9.5H3A9 9 0 0 1 12 3z"></path><path d="M12 12.5V18a2 2 0 0 0 4 0"></path><path d="M12 3v-.5"></path></svg></span><h3>Risk runs on our desk</h3><ul><li>Marked every block &mdash; one health factor</li><li>Agentic liquidation protection, built in</li><li>Oracles, solvency, settlement &mdash; handled</li></ul></div>
+            </div>
+            <!-- BUSINESS STORY DIAGRAM -->
+            <div class="dk" style="max-width:430px;margin:0 auto;padding:20px 20px 16px">
+              <!-- 0 your product + code -->
+              <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.04);padding:12px 14px">
+                <div style="display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#F2B24A"></span><span style="width:7px;height:7px;border-radius:50%;background:#9F7BEE"></span><span style="width:7px;height:7px;border-radius:50%;background:#FD8C8E"></span><span class="mono" style="margin-left:7px;font-size:9.5px;color:#949494">yourproduct.xyz &mdash; exchange · wallet · agent</span></div>
+                <div class="ph mono" data-tpl-style="font-size:10.5px;margin-top:10px;color:#C9C3D6;{{ b_code }}"><span style="color:#F2C879">POST</span> /v1/credit/open <span style="color:#949494">{ user, leverage:</span> <span style="color:#B49BF5">5x</span> <span style="color:#949494">}</span><span style="display:inline-block;width:6px;height:11px;background:#B49BF5;margin-left:3px;vertical-align:-1px;animation:blink 1s step-end infinite"></span></div>
+              </div>
+              <!-- 1 vanna issues -->
+              <div class="ph" data-tpl-style="display:flex;justify-content:center;margin:6px 0;{{ b_beam }}"><span style="width:2px;height:16px;background:linear-gradient(#B49BF5,transparent)"></span></div>
+              <div class="ph" data-tpl-style="border:1px solid rgba(159,123,238,.3);border-radius:14px;background:rgba(112,58,230,.1);padding:11px 14px;display:flex;justify-content:space-between;align-items:center;{{ b_issue }}">
+                <img src="assets/vanna-white.png" alt="vanna" style="height:12px;display:block">
+                <span class="mono" style="font-size:10.5px;color:#B49BF5">credit line issued · <b style="color:#E7E3F2">$50,000 @ 5&times;</b></span>
+              </div>
+              <!-- 2 users -->
+              <div class="ph" data-tpl-style="display:flex;flex-direction:column;gap:6px;margin-top:10px;{{ b_users }}">
+                <div class="urow"><span class="mono" style="font-size:10.5px;color:#C9C3D6">0x9f4&hellip;2c1 &mdash; 5&times; long XLM</span><span class="mono" style="font-size:10px;color:#9F7BEE">protected ✓</span></div>
+                <div class="urow" style="transition-delay:.15s"><span class="mono" style="font-size:10.5px;color:#C9C3D6">0x3a1&hellip;88d &mdash; 3&times; basis trade</span><span class="mono" style="font-size:10px;color:#9F7BEE">protected ✓</span></div>
+                <div class="urow" style="transition-delay:.3s"><span class="mono" style="font-size:10.5px;color:#C9C3D6">agent_07 &mdash; 8&times; delta-neutral</span><span class="mono" style="font-size:10px;color:#9F7BEE">protected ✓</span></div>
+              </div>
+              <!-- 3 risk event -->
+              <div class="ph" data-tpl-style="display:flex;align-items:center;gap:8px;border:1px solid {{ b_evtBorder }};border-radius:12px;background:{{ b_evtBg }};padding:9px 13px;margin-top:10px;transition:all .5s;{{ b_evt }}">
+                <span class="mono" style="font-size:10.5px;font-weight:600;color:#FD8C8E">XLM &minus;12%</span>
+                <span style="flex:1;height:1.5px;background:linear-gradient(90deg,#FD8C8E,#9F7BEE)"></span>
+                <span class="mono" style="font-size:10px;color:#9F7BEE" data-tpl-text="b_evtMsg"></span>
+              </div>
+              <!-- 4 revenue -->
+              <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.1);margin-top:12px;padding-top:11px">
+                <span class="mono" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#949494">your fee share</span>
+                <span class="mono" data-tpl-style="font-size:16px;font-weight:600;transition:all .4s;color:{{ b_revC }}"><span data-tpl-text="b_rev"></span> <span style="font-size:9.5px;color:#949494;font-weight:400">/ week</span></span>
+              </div>
+              <!-- caption -->
+              <div style="display:flex;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,.08);margin-top:11px;padding-top:11px">
+                <div style="display:flex;gap:4px"><span class="capdot" data-tpl-style="{{ bd0 }}"></span><span class="capdot" data-tpl-style="{{ bd1 }}"></span><span class="capdot" data-tpl-style="{{ bd2 }}"></span><span class="capdot" data-tpl-style="{{ bd3 }}"></span><span class="capdot" data-tpl-style="{{ bd4 }}"></span></div>
+                <span class="mono" style="font-size:10px;color:#C9C3D6" data-tpl-text="b_cap"></span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:30px">
+              <div class="feat"><span class="fico" style="background:rgba(214,138,30,.12)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D68A1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4v15a1 1 0 0 0 1 1h17"></path><path d="M7 14.5l4-4 3 3 6-6.5"></path><path d="M16.5 7H20v3.5"></path></svg></span><h3>A compounding revenue line</h3><ul><li>Share of borrow &amp; margin fees</li><li>Leverage deepens volume and TVL</li><li>New surfaces: leveraged wallets · prediction · LP</li></ul></div>
+              <div class="feat"><span class="fico" style="background:rgba(112,58,230,.1)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#703AE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"></path><path d="M4 10h16"></path><path d="M12 3L4 7h16z"></path><path d="M6.5 10v11M12 10v11M17.5 10v11"></path></svg></span><h3>Your own credit desk</h3><ul><li>Curated market: your collateral &amp; venue lists, your caps</li><li>Set a fixed risk premium &mdash; your underwriting, our rails</li><li>Segregated accounts &middot; unified portfolio margin &middot; full audit trail</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== ALT DIAGRAM DIRECTIONS ==================== -->
+  <div class="owrap" id="alts" style="scroll-margin-top:16px;margin-bottom:10px">
+    <div class="olab"><span class="id">Alt</span><span class="nm">Diagram ke aur directions — jo pasand aaye use live wire kar dunga</span></div>
+    <section class="osec" data-screen-label="Alt diagrams" style="padding:44px 0 50px">
+      <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:0 40px">
+        <div style="width:250px;border:1px solid #E4DFD4;border-radius:16px;background:#FCFBF9;padding:16px">
+          <div class="mono" style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#B8781A">T-alt · the balance</div>
+          <div style="position:relative;height:86px;margin-top:12px">
+            <div style="position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:20px solid #171320"></div>
+            <div style="position:absolute;left:10%;right:10%;bottom:32px;height:3px;border-radius:2px;background:#171320;transform:rotate(-2deg)"></div>
+            <span class="mono" style="position:absolute;left:8%;bottom:42px;font-size:10px;font-weight:600;color:#C33127">spot &minus;$240</span>
+            <span class="mono" style="position:absolute;right:8%;bottom:46px;font-size:10px;font-weight:600;color:#6A38D6">perps +$420</span>
+            <span class="mono" style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:9.5px;color:#8A8496">HF 2.31 · level</span>
+          </div>
+          <p style="font-size:11.5px;line-height:1.5;color:#5B5568;margin:10px 0 0">Seesaw jo kabhi girta nahi — losses ek taraf, profits doosri taraf, HF fulcrum pe. Netting ka ek-frame proof.</p>
+        </div>
+        <div style="width:250px;border:1px solid #E4DFD4;border-radius:16px;background:#FCFBF9;padding:16px">
+          <div class="mono" style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#B8781A">T-alt · two clocks</div>
+          <div style="margin-top:14px">
+            <div class="mono" style="font-size:9.5px;color:#8A8496">perps funding — account drains</div>
+            <div style="height:8px;border-radius:4px;background:#F0ECE3;margin-top:5px"><span style="display:block;height:100%;width:22%;border-radius:4px;background:linear-gradient(90deg,#D3453F,#F2848A)"></span></div>
+            <div class="mono" style="font-size:9.5px;color:#8A8496;margin-top:12px">vanna borrow rate — carry pays it</div>
+            <div style="height:8px;border-radius:4px;background:#F0ECE3;margin-top:5px"><span style="display:block;height:100%;width:86%;border-radius:4px;background:linear-gradient(90deg,#703AE6,#9F7BEE)"></span></div>
+          </div>
+          <p style="font-size:11.5px;line-height:1.5;color:#5B5568;margin:12px 0 0">Same position, do clocks: funding-fee wala account jaldi khatam; borrow-rate wala hedge ki carry se zinda. &ldquo;Credit on your clock&rdquo; ka proof.</p>
+        </div>
+        <div style="width:250px;border:1px solid #E4DFD4;border-radius:16px;background:#FCFBF9;padding:16px">
+          <div class="mono" style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#6A38D6">B-alt · the checklist collapse</div>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px" class="mono">
+            <span style="font-size:10px;color:#A39CAF;text-decoration:line-through">bootstrap a lending book</span>
+            <span style="font-size:10px;color:#A39CAF;text-decoration:line-through">build a risk engine</span>
+            <span style="font-size:10px;color:#A39CAF;text-decoration:line-through">hire a liquidation desk</span>
+            <span style="font-size:10px;color:#A39CAF;text-decoration:line-through">run oracles &amp; solvency</span>
+            <span style="font-size:11px;color:#6A38D6;font-weight:600;margin-top:4px">&rarr; vanna.integrate()</span>
+          </div>
+          <p style="font-size:11.5px;line-height:1.5;color:#5B5568;margin:12px 0 0">18-month infra roadmap ek-ek karke strike-through hota hai, ek code line bachti hai. &ldquo;Live in minutes&rdquo; ka proof.</p>
+        </div>
+        <div style="width:250px;border:1px solid #E4DFD4;border-radius:16px;background:#FCFBF9;padding:16px">
+          <div class="mono" style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#6A38D6">B-alt · the flywheel</div>
+          <div style="margin-top:12px" class="mono">
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:#5B5568"><span>users on leverage</span><b style="color:#171320">1,204</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:#5B5568;margin-top:6px"><span>volume routed</span><b style="color:#171320">$8.4M</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:#5B5568;margin-top:6px"><span>TVL retained</span><b style="color:#171320">$2.1M</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;margin-top:8px;padding-top:8px;border-top:1px solid #F0ECE3"><span style="color:#6A38D6">your fee share</span><b style="color:#6A38D6">$4,120/wk</b></div>
+          </div>
+          <p style="font-size:11.5px;line-height:1.5;color:#5B5568;margin:12px 0 0">Odometer stack — leverage se users &rarr; volume &rarr; TVL &rarr; fees, sab counters live tick karte hue. Revenue-line ka proof.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+// Vanilla-JS port of the Claude Design (DCLogic) component runtime.
+// State drives {{ }} bindings stored in data-tpl-style / data-tpl-text.
+(function () {
+  var state = { aud: 't', ph: 0 };
+
+  function vis(p) { return state.ph >= p ? 'opacity:1;transform:none' : 'opacity:0;transform:translateY(8px)'; }
+  function dot(i) { return state.ph === i ? 'width:16px;background:#B49BF5' : ''; }
+
+  function computeVals() {
+    var t = state.aud === 't', ph = state.ph;
+    var on = 'color:#171320;background:#fff;box-shadow:0 8px 20px -10px rgba(30,10,60,.35)';
+    var off = 'color:#8A8496;background:transparent';
+    var pane = function (v) { return v ? 'opacity:1;transform:none;pointer-events:auto;position:relative;z-index:2' : 'opacity:0;transform:translateY(14px);pointer-events:none;z-index:1'; };
+    var tCaps = ['1 · deposit collateral — more than one', '2 · borrow at leverage — more than once', '3 · deploy across every market', '4 · a loss in one market is paid by another', '5 · one health factor holds the whole book'];
+    var bCaps = ['1 · one API call — leverage goes live', '2 · Vanna issues the credit line', '3 · your users trade at leverage, protected', '4 · the crash lands on our desk, not yours', '5 · borrow & margin fees accrue to you'];
+    var hfs = ['2.40', '2.40', '2.31', '1.92', '2.10'];
+    var hfC = ph === 3 ? '#F2C879' : '#BDA4F4';
+    return {
+      tBtn: t ? on : off, bBtn: t ? off : on, tPane: pane(t), bPane: pane(!t),
+      t_col: ph === 0 ? 'box-shadow:0 0 0 1.5px rgba(242,200,121,.5), 0 0 26px -6px rgba(242,200,121,.45)' : '',
+      t_bor: vis(1), t_mkts: vis(2),
+      t_spot: ph >= 3 ? 'border-color:rgba(253,140,142,.5);background:rgba(252,84,87,.09)' : '',
+      t_spotP: ph >= 3 ? 'color:#FD8C8E' : 'color:#9F7BEE',
+      t_spotV: ph >= 3 ? '−$240' : '+$60',
+      t_perps: ph >= 3 ? 'border-color:rgba(159,123,238,.55);background:rgba(112,58,230,.12);box-shadow:0 0 22px -8px rgba(159,123,238,.6)' : '',
+      t_beam: ph >= 3 ? 'opacity:1' : 'opacity:0',
+      t_net: vis(3), t_hf: hfs[ph], t_hfC: hfC, t_tag: vis(4),
+      t_cap: tCaps[ph],
+      td0: dot(0), td1: dot(1), td2: dot(2), td3: dot(3), td4: dot(4),
+      b_code: 'opacity:1',
+      b_beam: vis(1), b_issue: vis(1), b_users: vis(2),
+      b_evt: vis(3),
+      b_evtBorder: ph >= 3 ? 'rgba(253,140,142,.35)' : 'rgba(255,255,255,.08)',
+      b_evtBg: 'rgba(252,84,87,.06)',
+      b_evtMsg: ph >= 4 ? 'absorbed · solvent ✓' : 'hedged · deleveraging…',
+      b_rev: ph >= 4 ? '$1,240' : (ph >= 2 ? '$310' : '$0'),
+      b_revC: ph >= 4 ? '#F2C879' : '#E7E3F2',
+      b_cap: bCaps[ph],
+      bd0: dot(0), bd1: dot(1), bd2: dot(2), bd3: dot(3), bd4: dot(4)
+    };
+  }
+
+  var styleEls = document.querySelectorAll('[data-tpl-style]');
+  var textEls = document.querySelectorAll('[data-tpl-text]');
+
+  function render() {
+    var vals = computeVals();
+    styleEls.forEach(function (el) {
+      el.style.cssText = el.getAttribute('data-tpl-style').replace(/\{\{\s*(\w+)\s*\}\}/g, function (_, k) {
+        return vals[k] != null ? vals[k] : '';
+      });
+    });
+    textEls.forEach(function (el) {
+      el.textContent = vals[el.getAttribute('data-tpl-text')] != null ? vals[el.getAttribute('data-tpl-text')] : '';
+    });
+  }
+
+  document.getElementById('btnT').addEventListener('click', function () { state.aud = 't'; render(); });
+  document.getElementById('btnB').addEventListener('click', function () { state.aud = 'b'; render(); });
+  setInterval(function () { state.ph = (state.ph + 1) % 5; render(); }, 2600);
+  render();
+})();
+</script>
+</body>
+</html>
