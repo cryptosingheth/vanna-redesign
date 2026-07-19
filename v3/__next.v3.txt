@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[65727,["/vanna-redesign/_next/static/chunks/db9ee42d660f1ce8.js","/vanna-redesign/_next/static/chunks/49f51b2ecdb80bfe.js"],"default"]
 3:I[23932,["/vanna-redesign/_next/static/chunks/db9ee42d660f1ce8.js","/vanna-redesign/_next/static/chunks/49f51b2ecdb80bfe.js"],"default"]
-0:{"buildId":"wuXAIRjRrOZyYK92qJD_Q","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"HT3EQdcnmw8wlldBbBW8p","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
