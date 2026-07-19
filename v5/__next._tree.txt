@@ -3,4 +3,4 @@
 :HL["/vanna-redesign/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/vanna-redesign/_next/static/media/fba5a26ea33df6a3-s.p.1bbdebe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/vanna-redesign/_next/static/chunks/674e22e1ec1577be.css","style"]
-0:{"buildId":"HT3EQdcnmw8wlldBbBW8p","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"v5","paramType":null,"paramKey":"v5","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"IXNp0yEe6_yBaYgb7M0h5","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"v5","paramType":null,"paramKey":"v5","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
